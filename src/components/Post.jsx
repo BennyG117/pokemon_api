@@ -11,6 +11,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin:5px 50px;
   padding: 5px;
   max-width: 200px;
 `;
@@ -24,7 +25,11 @@ const Post = (props) => {
 
       <Container>
         {/* use map to generate UL of all names */}
-        <p>{props.dataProp.name}</p>
+        <ul>
+            {props.dataProp.results && props.dataProp.results.map((pokemon) => (
+                <li key={pokemon.name} >{pokemon.name}</li>
+            ))}
+        </ul>
       </Container>
     </>
   );
